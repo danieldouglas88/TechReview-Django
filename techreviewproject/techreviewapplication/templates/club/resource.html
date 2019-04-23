@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<!--This is a comment-->
+
+<center>
+    <h2>Tech Types:</h2>
+<h4>Types of technology</h4>
+    </center>
+
+<table class="table table-striped table-dark">
+  <thead> 
+      <tr>
+    <th scope="col"><h3>ID </h3></th>
+    <th scope="col"><h3>Name</h3></th>
+    <th scope="col"><h3>Description</h3></th>
+  </tr>
+
+    {% for i in typeList %}
+   <tr>
+       <td>{{ i.id }}</td>
+       <td>{{ i.techtypename }}</td>
+       <td>{{ i.techdescription }}</td>
+   </tr>
+ {% endfor %}
+      
+</thead>
+</table>
+<br>
+<hr>
+{%  endblock %}
