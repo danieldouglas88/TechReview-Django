@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<!--This is a comment-->
+
+<center>
+    <h2>Find a Meeting:</h2>
+    </center>
+<br>
+<center>
+<form action="/meetingresult" method="get" target="_self" class="form-inline">
+  <div class="form-group mx-sm-3 mb-2">
+ <input type="text" name="meetingid" placeholder="Meeting ID"><br>
+    </div>
+  <input class="btn btn-primary mb-2" type="submit" value="Submit">
+</form>
+    
+</center>
+
+<br>
+<hr>
+{%  endblock %}

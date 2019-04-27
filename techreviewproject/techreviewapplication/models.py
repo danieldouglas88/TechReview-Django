@@ -53,3 +53,18 @@ class TechReview(models.Model):
     class Meta:
         db_table = 'techreview'
         verbose_name_plural = 'techreviews'
+        
+        
+class TechMeeting(models.Model):
+    meetingtype = models.CharField(max_length = 255)
+    meetingtitle = models.CharField(max_length = 255)
+    meetingdate = models.DateField()
+    posteddate = models.DateField()
+    experiencelevel = models.SmallIntegerField()
+    
+    def __str__(self):
+        return self.meetingtype
+    
+    class Meta:
+        db_table = 'techmeeting'
+        verbose_name_plural = 'techmeetings'
