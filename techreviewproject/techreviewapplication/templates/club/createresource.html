@@ -6,15 +6,14 @@
     </center>
 <br>
 <center>
-
-<form name="cmform" action="/createresourceresult" method="get" target="_self" class="form-inline">
-  <div class="form-group mx-sm-3 mb-2">
- <input type="text" name="resourcename" placeholder="Name of Tech" required><br><br>
-      <textarea type="text" name="resourcedescription" placeholder="Tech Description" required></textarea><br><br>
-    </div>
-  <input class="btn btn-primary mb-2" type="submit" value="Submit">
-</form>
-    
+        <form method='POST' class="post-form">
+         <table class='table'>
+        {% csrf_token %}
+        {{form.as_table}}
+            
+    </table>
+    <button type="submit" class="save btn btn-default">Save</button>
+        </form>
 </center>
 
 <br>

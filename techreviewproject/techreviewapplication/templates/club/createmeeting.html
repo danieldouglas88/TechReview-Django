@@ -6,18 +6,14 @@
     </center>
 <br>
 <center>
-
-<form name="cmform" action="/createmeetingresult" method="get" target="_self" class="form-inline">
-  <div class="form-group mx-sm-3 mb-2">
- <input type="text" name="meetingtype" placeholder="Meeting Type" required><br><br>
- <input type="text" name="meetingtitle" placeholder="Meeting Title" required><br><br>
-      Meeting Date:<br>
-     <input type="date" name="meetingdate" placeholder="Meeting Date" type="date" required><br><br>
- <input type="number" name="experiencelevel" placeholder="Experience Level 1-5" type="number" maxlength="1" step="1" required><br>
-    </div>
-  <input class="btn btn-primary mb-2" type="submit" value="Submit">
-</form>
-    
+        <form method='POST' class="post-form">
+         <table class='table'>
+        {% csrf_token %}
+        {{form.as_table}}
+            
+    </table>
+    <button type="submit" class="save btn btn-default">Save</button>
+        </form>
 </center>
 
 <br>

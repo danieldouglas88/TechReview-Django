@@ -12,9 +12,6 @@ urlpatterns = [
     path('meetingresult', views.meetingresult, name='meetingresult'),
     path('meetingdetail', views.meetingdetail, name='meetingdetail'),
     path('createmeeting', views.createmeeting, name='createmeeting'),
-    path('createmeetingresult', views.createmeetingresult, name='createmeetingresult'),
     path('createresource', views.createresource, name='createresource'),
-    path('createresourceresult', views.createresourceresult, name='createresourceresult'),
-
 
 ]

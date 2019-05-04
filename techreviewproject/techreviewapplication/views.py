@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import TechType, TechMeeting
 from django.http import HttpResponse
 import datetime
+from .forms import ResourceForm, MeetingForm
 
 # Create your views here.
 def index (request):
@@ -33,23 +34,25 @@ def meetingdetail(request):
         return HttpResponse("Sorry, there appears to be an issue")
 
 def createmeeting(request):
-    return render(request, 'club/createmeeting.html')
-   
-def createmeetingresult(request):
-    try:
-        createmeeting = TechMeeting(meetingtype = request.GET.get('meetingtype'), meetingtitle = request.GET.get('meetingtitle'), meetingdate = request.GET.get('meetingdate'), posteddate = datetime.datetime.now(), experiencelevel = request.GET.get('experiencelevel'))
-        createmeeting.save()
-        return render(request, 'club/createmeetingresult.html', {'createmeeting': createmeeting})
-    except:
-        return HttpResponse("Sorry, there appears to be an issue")
+    form = MeetingForm()
+    if request.method == 'POST':
+        form = MeetingForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit = True)
+            post.save()
+            form = MeetingForm()
+    else:
+        form = MeetingForm()
+    return render(request, 'club/createmeeting.html', {'form': form})
 
 def createresource(request):
-    return render(request, 'club/createresource.html')
-
-def createresourceresult(request):
-    try:
-        createresource = TechType(techtypename = request.GET.get('resourcename'), techdescription = request.GET.get('resourcedescription'))
-        createresource.save()
-        return render(request, 'club/createresourceresult.html', {'createresource': createresource})
-    except:
-        return HttpResponse("Sorry, there appears to be an issue")
+    form = ResourceForm()
+    if request.method == 'POST':
+        form = ResourceForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit = True)
+            post.save()
+            form = ResourceForm()
+    else:
+        form = ResourceForm()
+    return render(request, 'club/createresource.html', {'form': form})
