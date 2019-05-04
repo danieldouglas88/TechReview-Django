@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<!--This is a comment-->
+<center>
+    <h2>Create Resource:</h2>
+    </center>
+<br>
+<center>
+
+<form name="cmform" action="/createresourceresult" method="get" target="_self" class="form-inline">
+  <div class="form-group mx-sm-3 mb-2">
+ <input type="text" name="resourcename" placeholder="Name of Tech" required><br><br>
+      <textarea type="text" name="resourcedescription" placeholder="Tech Description" required></textarea><br><br>
+    </div>
+  <input class="btn btn-primary mb-2" type="submit" value="Submit">
+</form>
+    
+</center>
+
+<br>
+<hr>
+{%  endblock %}

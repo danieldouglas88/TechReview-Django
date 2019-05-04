@@ -24,7 +24,7 @@ class ProductTech(models.Model):
     productURL = models.URLField(null = True, blank = True)
     productdescription = models.TextField(null = True, blank = True)
     
-    def __st__ (self):
+    def __str__ (self):
         return self.productname
     
     def memberDiscount(self):

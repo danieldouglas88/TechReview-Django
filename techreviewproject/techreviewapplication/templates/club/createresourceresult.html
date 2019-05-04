@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<!--This is a comment-->
+
+<center>
+    <h2>Resource Successfully Added:</h2>
+    </center>
+
+<table class="table table-striped table-dark">
+  <thead> 
+      <tr>
+    <th scope="col"><h3>ID </h3></th>
+    <th scope="col"><h3>Name</h3></th>
+    <th scope="col"><h3>Description</h3></th>
+  </tr>
+   <tr>
+       <td>{{ createresource.id }}</td>
+       <td>{{ createresource.techtypename }}</td>
+       <td>{{ createresource.techdescription }}</td>
+   </tr>
+</thead>
+</table>
+<br>
+<hr>
+{%  endblock %}
