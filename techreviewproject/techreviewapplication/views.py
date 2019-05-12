@@ -3,6 +3,8 @@ from .models import TechType, TechMeeting
 from django.http import HttpResponse
 import datetime
 from .forms import ResourceForm, MeetingForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
 
 # Create your views here.
 def index (request):
@@ -32,7 +34,8 @@ def meetingdetail(request):
         return render(request, 'club/meetingdetail.html', {'meetingdetailList': meetingdetailList})
     except:
         return HttpResponse("Sorry, there appears to be an issue")
-
+    
+@login_required
 def createmeeting(request):
     form = MeetingForm()
     if request.method == 'POST':
@@ -45,6 +48,7 @@ def createmeeting(request):
         form = MeetingForm()
     return render(request, 'club/createmeeting.html', {'form': form})
 
+@login_required
 def createresource(request):
     form = ResourceForm()
     if request.method == 'POST':
@@ -56,3 +60,17 @@ def createresource(request):
     else:
         form = ResourceForm()
     return render(request, 'club/createresource.html', {'form': form})
+
+@login_required
+def login(request):
+    return render(request, 'club/loginmessage.html')
+
+def loginmessage(request):
+    user = request.user.username
+    return render(request, 'club/loginmessage.html', {"user":user})
+
+def logoutmessage(request):
+    user = request.user.username
+    logout(request)
+    return render(request, 'club/logoutmessage.html',  {"user":user})
+
